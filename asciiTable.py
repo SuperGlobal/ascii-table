@@ -31,8 +31,8 @@ def fileToDict(value1):
 def drawHeader():
     f = open('data_file.txt', 'w')
     heading = '+' + ('-' * 131) + '+'
-    headingText = "| {:<9} | {:<25} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
-    headingText2 = " {:<9} | {:<5} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
+    headingText = "| {:<9} | {:<25} | {:<5} |".format(str('Decimal'),str('Char'),str('Hex'))
+    headingText2 = " {:<9} | {:<5} | {:<5} |".format(str('Decimal'),str('Char'),str('Hex'))
     headingFinal = headingText + headingText2 + headingText2 + headingText2
     f.write(heading + '\n')
     f.write(headingFinal + '\n')
