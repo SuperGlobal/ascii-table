@@ -28,14 +28,31 @@ def fileToDict(value1):
     x = x.rstrip()
     return x
 
-def drawTable():
-    heading = '-' * 131
+def drawHeader():
+    f = open('data_file.txt', 'w')
+    heading = '+' + ('-' * 131) + '+'
     headingText = "| {:<9} | {:<25} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
     headingText2 = " {:<9} | {:<5} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
-    print('+', heading, '+', sep="")
-    print(headingText, headingText2, headingText2, headingText2, sep="")
-    print('+', heading, '+', sep="")
+    headingFinal = headingText + headingText2 + headingText2 + headingText2
+    f.write(heading + '\n')
+    f.write(headingFinal + '\n')
+    f.write(heading + '\n')
+    print(heading)
+    print(headingFinal)
+    print(heading)
+    f.close()
+
+def drawFooter():
+    footer = '+' + ('-' * 131) + '+'
+    print(footer)
+    f = open('data_file.txt', 'a')
+    f.write(footer + '\n')
+    f.close()
+
+def drawTable():
+    drawHeader()
     # Drawing the table horizontally
+    f = open('data_file.txt', 'a')
     for i in range(32):
         line = ""
         for j in range(i, i + 96 + 1, 32):
@@ -47,7 +64,9 @@ def drawTable():
             if j == 127:
                 line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
         print(line)
-    print('+', heading, '+', sep="")
+        f.write(line + '\n')
+    f.close()
+    drawFooter()
 
 def main():
     drawTable()
