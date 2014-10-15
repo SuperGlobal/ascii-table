@@ -30,4 +30,5 @@
 29,Group separator
 30,Record separator
 31,Unit separator
+32,SPACE
 127,DEL
