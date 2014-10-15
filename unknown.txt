@@ -4,7 +4,7 @@
 3,End of text
 4,End of transmit
 5,Enquiry
-0,Acknowledge
+6,Acknowledge
 7,Audible bell
 8,Backspace
 9,Horizontal tab
