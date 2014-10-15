@@ -16,18 +16,31 @@ def toHexChar(hexValue):
     else:  # 10 <= hexValue <= 15
         return chr(hexValue - 10 + ord('A'))
 
-def main():
+def fileToDict(value1):
+    # Dumping values in to a dictionary
+    d = {}
+    with open("unknown.txt") as f:
+        for line in f:
+           (key, val) = line.split(',')
+           d[int(key)] = val
+    x = d.get(value1, 'Entry Not Found')
+    x = x.rstrip()
+    return x
 
+def drawTable():
     # Drawing the table horizontally
     for i in range(32):
         line = ""
         for j in range(i, i + 96 + 1, 32):
             if j >= 0 and j <= 31:
-                line = " \t| " + line + str(j) + " \t| " + " \t| " + decimalToHex(j) + " \t| "
+                line = " \t| " + line + str(j) + " \t| " + fileToDict(j) + " \t| " + decimalToHex(j) + " \t| "
             if j >= 32 and j <= 126:
                 line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
             if j == 127:
                 line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
         print(line)
+
+def main():
+    drawTable()
 
 main()
