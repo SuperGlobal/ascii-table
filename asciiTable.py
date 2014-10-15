@@ -1,7 +1,8 @@
 # Convert a decimal to a hex as a string 
 def decimalToHex(decimalValue):
     hex = ""
- 
+    if decimalValue == 0:
+        hex = 0 
     while decimalValue != 0:
         hexValue = decimalValue % 16 
         hex = toHexChar(hexValue) + hex
@@ -28,17 +29,25 @@ def fileToDict(value1):
     return x
 
 def drawTable():
+    heading = '-' * 131
+    headingText = "| {:<9} | {:<25} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
+    headingText2 = " {:<9} | {:<5} | {:<5} |".format(str('Decimal'),str('ASCII'),str('Hex'))
+    print('+', heading, '+', sep="")
+    print(headingText, headingText2, headingText2, headingText2, sep="")
+    print('+', heading, '+', sep="")
     # Drawing the table horizontally
     for i in range(32):
         line = ""
         for j in range(i, i + 96 + 1, 32):
             if j >= 0 and j <= 31:
-                line = line + "{:<5} | {:<25} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
+                line = line + "| {:<9} | {:<25} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
+                k = len(line)
             if j >= 32 and j <= 126:
-                line = line + "{:<5} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
+                line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
             if j == 127:
-                line = line + "{:<5} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
+                line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
         print(line)
+    print('+', heading, '+', sep="")
 
 def main():
     drawTable()

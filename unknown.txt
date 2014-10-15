@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-0,null
-1,Start of heading
-2,Start of text
-3,End of text
-4,End of transmit
-5,Enquiry
-6,Acknowledge
-7,Audible bell
-8,Backspace
-9,Horizontal tab
-10,Line feed
-11,Vertical tab
-12,Form feed
-13,Carriage return
-14,Shift out
-15,Shift in
-16,Data link escape
-17,Device control 1
-18,Device control 2
-19,Device control 3
-20,Device control 4
-21,Neg. acknowlege
-22,Synchronous idle
-23,End trans. block
-24,Cancel
-25,End of medium
-26,Substitution
-27,Escape
-28,File separator
-29,Group separator
-30,Record separator
-31,Unit separator
-127,DEL
-=======
 0,null
 1,Start of heading
 2,Start of text
@@ -66,4 +31,3 @@
 30,Record separator
 31,Unit separator
 127,DEL
->>>>>>> FETCH_HEAD
