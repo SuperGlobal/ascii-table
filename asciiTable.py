@@ -18,11 +18,12 @@ def toHexChar(hexValue):
 
 def main():
 
+    # Drawing the table horizontally
     for i in range(32):
         line = ""
         for j in range(i, i + 96 + 1, 32):
             if j >= 0 and j <= 31:
-                line = line + str(j) + " \t| " + " \t| " + decimalToHex(j) + " \t| "
+                line = " \t| " + line + str(j) + " \t| " + " \t| " + decimalToHex(j) + " \t| "
             if j >= 32 and j <= 126:
                 line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
             if j == 127:
