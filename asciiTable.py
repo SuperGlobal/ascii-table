@@ -33,11 +33,11 @@ def drawTable():
         line = ""
         for j in range(i, i + 96 + 1, 32):
             if j >= 0 and j <= 31:
-                line = " \t| " + line + str(j) + " \t| " + fileToDict(j) + " \t| " + decimalToHex(j) + " \t| "
+                line = line + "{:<5} | {:<25} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
             if j >= 32 and j <= 126:
-                line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
+                line = line + "{:<5} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
             if j == 127:
-                line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
+                line = line + "{:<5} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
         print(line)
 
 def main():
