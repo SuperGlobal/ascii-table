@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Convert a decimal to a hex as a string 
 def decimalToHex(decimalValue):
     hex = ""
@@ -16,18 +18,27 @@ def toHexChar(hexValue):
     else:  # 10 <= hexValue <= 15
         return chr(hexValue - 10 + ord('A'))
 
-def main():
+def dictFile(f):
+	d = dict()
+	fh = open(f, 'r')
+	try:
+		for n,desc in fh.read().split(','):
+			d[n] = desc
+	except IOError:
+		pass
+	return d
 
+def main():
     # Drawing the table horizontally
-    for i in range(32):
-        line = ""
-        for j in range(i, i + 96 + 1, 32):
-            if j >= 0 and j <= 31:
-                line = " \t| " + line + str(j) + " \t| " + " \t| " + decimalToHex(j) + " \t| "
-            if j >= 32 and j <= 126:
-                line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
-            if j == 127:
-                line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
-        print(line)
+	for i in range(32):
+		line = ""
+		for j in range(i, i + 96 + 1, 32):
+			if j >= 0 and j <= 31:
+				line = " \t| " + line + str(j) + " \t| " + " \t| " + decimalToHex(j) + " \t| "
+			if j >= 32 and j <= 126:
+				line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
+			if j == 127:
+				line = line + str(j) + " \t| " + chr(j) + " \t| " + decimalToHex(j) + " \t| "
+			print(line)
 
 main()
