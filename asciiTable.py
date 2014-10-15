@@ -59,8 +59,10 @@ def drawTable():
             if j >= 0 and j <= 31:
                 line = line + "| {:<9} | {:<25} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
                 k = len(line)
-            if j >= 32 and j <= 126:
+            if j > 32 and j <= 126:
                 line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),chr(j),decimalToHex(j))
+            if j == 32:
+                line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
             if j == 127:
                 line = line + " {:<9} | {:<5} | {:<5} |".format(str(j),fileToDict(j),decimalToHex(j))
         print(line)
